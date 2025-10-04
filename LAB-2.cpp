@@ -1,14 +1,7 @@
 ﻿#include <windows.h>
 #include <iostream>
 #include <stdexcept>
-
-struct Array {
-    int* arr;         
-    int size;
-    double average;   
-    int min;     
-    int max;     
-};
+#include "Array.h"
 
 DWORD WINAPI Min_max(LPVOID iNum);
 DWORD WINAPI Average(LPVOID iNum);
@@ -164,7 +157,7 @@ DWORD WINAPI Average(LPVOID iNum) {
         std::cout << "Среднее = " << a->average << std::endl;
     }
     catch (const std::exception& e) {
-        std::cerr << "Ошибка в потоке Average: " << e.what() << std::endl;
+        std::cout << "Ошибка в потоке Average: " << e.what() << std::endl;
         return 1;
     }
     return 0;
